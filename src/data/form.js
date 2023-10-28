@@ -3,7 +3,8 @@ const data = [
     "id": 1,
     "title": "STEP 1",
     "subtitle": "YOUR INFO",
-    "active": true,
+    "slug": "/your-info", 
+    "next": "/select-plan",
     "fields": [
       {
         "id": 10,
@@ -48,7 +49,9 @@ const data = [
     "id": 2,
     "title": "STEP 2",
     "subtitle": "SELECT PLAN",
-    "active": false,
+    "next": "/add-ons",
+    "slug": "/select-plan",
+    "prev": "/your-info",
     "fields": [
       {
         "id": 20,
@@ -56,25 +59,31 @@ const data = [
         "subtitle": "You have the option of monthly or yearly billing.",
         "plans": [
           {
+            "id": 200,
             "label": "Arcade",
             "icon": "arcade",
             "value": "arcade",
             "priceMonthly": 9,
-            "priceYearly": 90
+            "priceYearly": 90,
+            "discount": "2 months free"
           },
           {
+            "id": 201,
             "label": "Advanced",
             "icon": "advanced",
             "value": "advanced",
             "priceMonthly": 12,
-            "priceYearly": 120
+            "priceYearly": 120,
+            "discount": "2 months free"
           },
           {
+            "id": 202,
             "label": "Pro",
             "icon": "pro",
             "value": "pro",
             "priceMonthly": 15,
-            "priceYearly": 150
+            "priceYearly": 150,
+            "discount": "2 months free"
           }
         ],
         "options": [
@@ -108,7 +117,9 @@ const data = [
     "id": 3,
     "title": "STEP 3",
     "subtitle": "ADD-ONS",
-    "active": false,
+    "next": "/summary",
+    "slug": "/add-ons",
+    "prev": "/select-plan",
     "fields": [
       {
         "id": 30,
@@ -116,6 +127,7 @@ const data = [
         "subtitle": "Add-ons help enhance your gaming experience.",
         "options": [
           {
+            "id": 300,
             "title": "Online service",
             "subtitle": "Access to multiplayer games",
             "priceMonthly": 1,
@@ -123,6 +135,7 @@ const data = [
             "isChecked": true,
           },
           {
+            "id": 301,
             "title": "Larger storage",
             "subtitle": "Extra 1TB of cloud save",
             "priceMonthly": 2,
@@ -130,6 +143,7 @@ const data = [
             "isChecked": true,
           },
           {
+            "id": 302,
             "title": "Customizable Profile",
             "subtitle": "Custom theme on your profile",
             "priceMonthly": 2,
@@ -155,7 +169,9 @@ const data = [
     "id": 4,
     "title": "STEP 4",
     "subtitle": "SUMMARY",
-    "active": false,
+    "next": "/confirmation",
+    "slug": "/summary",
+    "prev": "/add-ons",
     "fields": [
       {
         "id": 40,

@@ -16,6 +16,7 @@ export default {
         'light-blue': '#ABBCFF',
         'denim': '#022959',
         'gray': '#9699AA',
+        "very-light-gray": '#F8F9FF',
         'purple': '#483EFF',
         'border-color': '#D6D9E6',
         'red-errors': '#EE374A',
