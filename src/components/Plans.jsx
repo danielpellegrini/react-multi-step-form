@@ -22,7 +22,10 @@ const Plans = () => {
   const [planValues, setPlanValues] = useLocalStorage('planValues', {
     planFrequency: 'monthly',
     selectedPlan: 'arcade',
+    price: 9
   })
+
+  
 
   const handlePlanFrequency = () => {
     setPlanValues({
@@ -63,6 +66,7 @@ const Plans = () => {
                           plan={plan}
                           planValues={planValues}
                           setPlanValues={setPlanValues}
+                          price={planValues.price}
                         />
                       ))}
                     </div>
@@ -95,6 +99,7 @@ const Plan = ({ plan, planValues, setPlanValues }) => {
     setPlanValues({
       ...planValues,
       selectedPlan: value,
+      price: planValues.planFrequency === 'monthly' ? priceMonthly : priceYearly,
     })
   }
 

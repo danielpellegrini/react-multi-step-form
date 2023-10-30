@@ -132,7 +132,6 @@ const data = [
             "subtitle": "Access to multiplayer games",
             "priceMonthly": 1,
             "priceYearly": 10,
-            "isChecked": true,
           },
           {
             "id": 301,
@@ -140,7 +139,6 @@ const data = [
             "subtitle": "Extra 1TB of cloud save",
             "priceMonthly": 2,
             "priceYearly": 20,
-            "isChecked": true,
           },
           {
             "id": 302,
@@ -148,7 +146,6 @@ const data = [
             "subtitle": "Custom theme on your profile",
             "priceMonthly": 2,
             "priceYearly": 20,
-            "isChecked": false,
           }
         ],
     }],
