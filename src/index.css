@@ -6,6 +6,12 @@
   --main-bg: #EFF5FF;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-size: 0.75rem;
   font-style: normal;
