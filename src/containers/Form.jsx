@@ -1,4 +1,4 @@
-import { Sidebar, Input, Plans, Addons} from "../components"
+import { Sidebar, Input, Plans, Addons, Summary} from "../components"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const Form = () => {
@@ -10,6 +10,7 @@ const Form = () => {
             <Route path="/your-info" element={<Input />} />
             <Route path="/select-plan" element={<Plans />} />
             <Route path="/add-ons" element={<Addons />} />
+            <Route path="/summary" element={<Summary />} />
           </Routes>
       </BrowserRouter>
     </div>

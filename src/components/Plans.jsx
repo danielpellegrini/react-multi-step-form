@@ -35,13 +35,13 @@ const Plans = () => {
   }
 
   return (
-    <div className="pt-[1.5rem] pl-[6.25rem]">
+    <div className="flex w-[28.125rem] items-start mt-[2rem] ml-[6.25rem]">
       {data.map((item) => {
         const { id, fields, actions, next, prev, slug } = item
 
         if (pathname === slug) {
           return (
-            <div className="flex flex-col w-[28.125rem]" key={id}>
+            <div className="flex flex-col justify-between h-full w-[inherit]" key={id}>
               {fields.map((field) => {
                 const { id, title, subtitle, plans } = field
 
@@ -59,7 +59,7 @@ const Plans = () => {
                       </>
                     )}
 
-                    <div className="flex justify-between mb-[2rem]">
+                    <div className="flex justify-between gap-[1.12rem] mb-[2rem]">
                       {plans.map((plan) => (
                         <Plan
                           key={plan.id}

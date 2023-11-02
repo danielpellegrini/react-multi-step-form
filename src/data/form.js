@@ -166,7 +166,6 @@ const data = [
     "id": 4,
     "title": "STEP 4",
     "subtitle": "SUMMARY",
-    "next": "/confirmation",
     "slug": "/summary",
     "prev": "/add-ons",
     "fields": [
@@ -174,25 +173,28 @@ const data = [
         "id": 40,
         "title": "Finishing up",
         "subtitle": "Double-check everything looks OK before confirming.",
-      },
-      {
         "label": "Total (per month)",
         "price": 0,
-      }
+      },
     ],
+    "confirmation": {
+      "icon": "thank-you",
+      "title": "Thank you!",
+      "subtitle": "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.",
+    },
     "actions": [
       {
-        "id": 400,
+        "id": 4000,
         "label": "Go Back",
         "value": "previous"
       },
       {
-        "id": 401,
+        "id": 4001,
         "label": "Confirm",
         "value": "confirm"
       }
     ]
-  },
+  }
 ]
 
 export default data;
