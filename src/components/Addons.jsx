@@ -14,25 +14,27 @@ const Addons = () => {
 
   const [checkedState, setCheckedState] = useState(() => {
     const storedCheckedState = localStorage.getItem('selectedOptions')
+
     if (storedCheckedState) {
       const parsedCheckedState = JSON.parse(storedCheckedState)
       // Map the parsed data to create an initial state array
-      return options.map((option, index) => {
-        return (
-          parsedCheckedState.some(data => data.title === option.title) ||
-          (parsedCheckedState[index] && parsedCheckedState[index].title === option.title)
-        )
+      return options.map(option => {
+        const found = parsedCheckedState.find(data => data.title === option.title)
+        
+        return found ? found : false
       })
     } else {
       return new Array(options.length).fill(false)
     }
   })
 
+  
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) => index === position ? !item : item)
-
+    
     setCheckedState(updatedCheckedState)
   }
+  console.log(checkedState)
 
   useEffect(() => {
     const dataToSave = checkedState.map((isChecked, index) => {
@@ -54,13 +56,13 @@ const Addons = () => {
   }, [checkedState, options, planFrequency])
 
   return (
-    <div className="pt-[1.5rem] pl-[6.25rem]">
+    <div className="w-[28.125rem] mt-[2rem] ml-[6.25rem]">
       {data.map(item => {
         const { id, fields, actions, next, prev, slug } = item
 
         if (pathname === slug) {
           return (
-            <div className="flex flex-col w-[28.125rem]" key={id}>
+            <div className="flex flex-col justify-between h-full w-[inherit]" key={id}>
               {fields.map(field => {
                 const { id, title, subtitle, options } = field
 
@@ -91,7 +93,7 @@ const Addons = () => {
                           className={`flex items-center w-full justify-between py-[1.13rem] px-6 rounded-lg border-[1px] mb-4 cursor-pointer hover:border-purple hover:outline-[1px] ${
                             checkedState[index]
                               ? 'border-[1px] border-purple bg-very-light-gray'
-                              : 'border-transparent'
+                              : 'border-border-color'
                           }`}
                           key={id}
                           onClick={() => handleOnChange(index)}
@@ -100,7 +102,7 @@ const Addons = () => {
                             <label className="relative flex items-center cursor-pointer">
                               <input
                                 type="checkbox"
-                                className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple checked:bg-purple checked:before:bg-purple"
+                                className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-border-color transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:border-purple checked:bg-purple checked:before:bg-purple"
                                 id={`checkbox-${id}`}
                                 checked={checkedState[index]}
                                 onChange={() => handleOnChange(index)}
