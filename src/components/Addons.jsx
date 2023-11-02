@@ -21,7 +21,7 @@ const Addons = () => {
       return options.map(option => {
         const found = parsedCheckedState.find(data => data.title === option.title)
         
-        return found ? found : false
+        return found || false
       })
     } else {
       return new Array(options.length).fill(false)
@@ -34,7 +34,6 @@ const Addons = () => {
     
     setCheckedState(updatedCheckedState)
   }
-  console.log(checkedState)
 
   useEffect(() => {
     const dataToSave = checkedState.map((isChecked, index) => {
@@ -143,7 +142,6 @@ const Addons = () => {
                   </div>
                 )
               })}
-              {console.log(localStorage)}
               <Buttons actions={actions} next={next} prev={prev} />
             </div>
           )
