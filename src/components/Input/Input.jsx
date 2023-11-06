@@ -1,12 +1,11 @@
+import { Title } from '../common'
 import data from '../../data'
-import {  useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const Input = ({handleInputChange, formSubmitted, inputValues}) => {
   const location = useLocation()
   const { pathname } = location
-
-  
 
   return (
     <div className='
@@ -53,28 +52,9 @@ const Input = ({handleInputChange, formSubmitted, inputValues}) => {
 
                   return (
                     <div className='flex flex-col' key={id}>
-                      {title && subtitle && (
-                        <>
-                          <h1 className='
-                            text-denim 
-                            lg:text-[2rem] text-2xl
-                            font-[700] 
-                            leading-normal
-                          '>
-                            {title}
-                          </h1>
 
-                          <h2 className='
-                          text-gray 
-                            text-[1rem]
-                            leading-[1.5625rem] 
-                            font-[400] 
-                            mb-[2.19rem]
-                          '>
-                            {subtitle}
-                          </h2>
-                        </>
-                      )}
+                      <Title title={title} subtitle={subtitle} />
+                      
                       {label && (
                         <div className='flex flex-col mb-[1.5rem]'>
                           <div className='
@@ -109,7 +89,6 @@ const Input = ({handleInputChange, formSubmitted, inputValues}) => {
                   )
                 })}
               </div>
-              {/* <Buttons actions={actions} onClick={handleSubmit} /> */}
             </div>
           )
         }

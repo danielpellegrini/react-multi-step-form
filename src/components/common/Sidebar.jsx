@@ -33,7 +33,7 @@ const Sidebar = () => {
             lg:w-[8.4375rem] 
             lg:h-[2.0625rem] 
             flex-shrink-0 
-            mb-5' 
+            lg:mb-[1.94rem]' 
             key={id}>
             {/* INDEX */}
             <div className={` 

@@ -21,6 +21,8 @@ const Form = () => {
   // Use saved data to prepopulate form fields
   const [inputValues, setInputValues] = useState(storedInputValues)
 
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   const handleInputChange = (event) => {
     const target = event.target
     const name = target.name
@@ -53,40 +55,42 @@ const Form = () => {
   }
 
   return (
-    <>
-      <div className="lg:hidden absolute top-0 left-0 w-full ">
-        <Sidebar />
-      </div>
-      <div className="
-        flex
-        absolute top-28 left-[50%] transform translate-x-[-50%]
-        lg:w-[58.75rem] w-[21.4375rem]
-        lg:h-[37.5rem] h-[auto]
-        lg:p-[17.1px] py-[2rem] px-[1.5rem]
-        bg-white 
-        flex-shrink-0 
-        shadow-[0_25px_40px_-20px_rgba(0,0,0,0.10)] 
-        rounded-[0.9375rem]
-      ">
-        <div className="lg:flex hidden">
+    <div className="">
+      <div className="">
+        <div className="lg:hidden absolute top-0 left-0 w-full ">
           <Sidebar />
         </div>
-          <Routes>
-            <Route path="/your-info" element={<Input handleInputChange={handleInputChange} formSubmitted={formSubmitted} inputValues={inputValues} />} />
-            <Route path="/select-plan" element={<Plans />} />
-            <Route path="/add-ons" element={<Addons />} />
-            <Route path="/summary" element={<Summary />} />
-          </Routes>
+        <div className="flex absolute lg:top-[50%] top-28 left-[50%] translate-x-[-50%] lg:translate-y-[-50%] lg:w-[58.75rem] w-[21.4375rem] lg:h-[37.5rem] h-[auto] lg:p-[17.1px] py-[2rem] px-[1.5rem] bg-white flex-shrink-0 shadow-[0_25px_40px_-20px_rgba(0,0,0,0.10)] rounded-[0.9375rem]">
+          <div className="lg:flex hidden">
+            <Sidebar />
+          </div>
+            <Routes>
+              <Route path="/your-info" element={<Input handleInputChange={handleInputChange} formSubmitted={formSubmitted} inputValues={inputValues} />} />
+              <Route path="/select-plan" element={<Plans />} />
+              <Route path="/add-ons" element={<Addons />} />
+              <Route path="/summary" element={<Summary showConfirmation={showConfirmation} />} />
+            </Routes>
+          <div className={`${showConfirmation ? 'hidden' : 'lg:flex'} hidden absolute bottom-0 right-[6.31rem]`}>
+            <Buttons 
+              actions={actions} 
+              next={next} 
+              prev={prev}
+              onClick={currentPageData.id === 1 ? handleSubmit : null}
+              submit={() => setShowConfirmation(true)}
+            />
+          </div>
+        </div>
       </div>
-      <div className="lg:hidden absolute bottom-0 left-0 w-full">
+      <div className={`${showConfirmation && 'hidden'} lg:hidden fixed bottom-0 left-0 w-full`}>
         <Buttons 
           actions={actions} 
           next={next} 
           prev={prev}
           onClick={currentPageData.id === 1 ? handleSubmit : null}
+          submit={() => setShowConfirmation(true)}
         />
       </div>
-    </>
+    </div>
   )
 }
 

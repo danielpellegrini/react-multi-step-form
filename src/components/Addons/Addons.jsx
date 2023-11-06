@@ -1,7 +1,7 @@
+import { Title } from '../common'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import data from '../../data'
-import Buttons from '../Buttons'
 
 const Addons = () => {
   const location = useLocation()
@@ -55,9 +55,9 @@ const Addons = () => {
   }, [checkedState, options, planFrequency])
 
   return (
-    <div className="w-[28.125rem] mt-[2rem] ml-[6.25rem]">
+    <div className="flex lg:w-[28.125rem] lg:mt-[2rem] lg:ml-[6.25rem]">
       {data.map(item => {
-        const { id, fields, actions, next, prev, slug } = item
+        const { id, fields, slug } = item
 
         if (pathname === slug) {
           return (
@@ -67,17 +67,8 @@ const Addons = () => {
 
                 return (
                   <div className="flex flex-col" key={id}>
-                    {title && subtitle && (
-                      <>
-                        <h1 className="text-denim text-[2rem] font-[700] leading-normal">
-                          {title}
-                        </h1>
+                    <Title title={title} subtitle={subtitle} />
 
-                        <h2 className="text-gray text-[1rem] leading-[1.5625rem] font-[400] mb-[2.19rem]">
-                          {subtitle}
-                        </h2>
-                      </>
-                    )}
                     {options.map((option, index) => {
                       const {
                         id,
@@ -89,7 +80,7 @@ const Addons = () => {
 
                       return (
                         <div
-                          className={`flex items-center w-full justify-between py-[1.13rem] px-6 rounded-lg border-[1px] mb-4 cursor-pointer hover:border-purple hover:outline-[1px] ${
+                          className={`flex items-center w-full justify-between lg:py-[1.13rem] py-[0.81rem] lg:px-6 px-4 rounded-lg border-[1px] mb-4 cursor-pointer hover:border-purple hover:outline-[1px] ${
                             checkedState[index]
                               ? 'border-[1px] border-purple bg-very-light-gray'
                               : 'border-border-color'
@@ -123,11 +114,11 @@ const Addons = () => {
                                 </svg>
                               </div>
                             </label>
-                            <div className="flex flex-col gap-[0.44rem] ml-6">
-                              <span className="text-denim text-[1rem] font-[500]">
+                            <div className="flex flex-col lg:gap-[0.44rem] gap-[0.19rem] lg:ml-6 ml-4">
+                              <span className="text-denim lg:text-base text-sm font-[500]">
                                 {title}
                               </span>
-                              <span className="text-gray text-sm font-normal">
+                              <span className="text-gray lg:text-sm text-xs font-normal">
                                 {subtitle}
                               </span>
                             </div>
@@ -142,7 +133,6 @@ const Addons = () => {
                   </div>
                 )
               })}
-              <Buttons actions={actions} next={next} prev={prev} />
             </div>
           )
         }

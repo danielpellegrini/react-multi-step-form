@@ -1,3 +1,4 @@
+import { Title } from '../common'
 import { useState, useEffect } from 'react'
 import { useLocation } from "react-router-dom"
 import PropTypes from 'prop-types'
@@ -25,12 +26,7 @@ const Plans = () => {
   })
 
   return (
-    <div className="
-      flex 
-      lg:w-[28.125rem] 
-      lg:mt-[2rem] 
-      lg:ml-[6.25rem]
-    ">
+    <div className="flex lg:w-[28.125rem] lg:mt-[2rem] lg:ml-[6.25rem]">
       {data.map((item) => {
         const { id, fields, slug } = item
 
@@ -44,28 +40,7 @@ const Plans = () => {
 
                 return (
                   <div className="flex flex-col" key={id}>
-                    {title && subtitle && (
-                      <>
-                        <h1 className="
-                        text-denim 
-                          lg:text-[2rem] text-2xl
-                          font-[700] 
-                          leading-normal
-                        ">
-                          {title}
-                        </h1>
-
-                        <h2 className="
-                          text-gray 
-                          text-[1rem]
-                          leading-[1.5625rem] 
-                          font-[400] 
-                          mb-[2.19rem]
-                        ">
-                          {subtitle}
-                        </h2>
-                      </>
-                    )}
+                    <Title title={title} subtitle={subtitle} />
 
                     <div className="
                       flex

@@ -1,19 +1,17 @@
-import { useState } from 'react'
+import { Title } from '../common'
 import { useLocation, Link } from "react-router-dom"
+import PropTypes from 'prop-types'
 import data from '../../data'
 import Confirmation from '../Confirmation'
-import Buttons from '../Buttons'
 
-const Summary = () => {
+const Summary = ({ showConfirmation }) => {
   const location = useLocation()
   const { pathname } = location
 
-  const [showConfirmation, setShowConfirmation] = useState(false);
-
   return (
-    <div className={`flex w-[28.125rem] items-start ${!showConfirmation ? 'mt-[2rem]' : ''} ml-[6.25rem]`}>
+    <div className={`flex lg:w-[28.125rem] items-start ${!showConfirmation ? 'lg:mt-[2rem]' : ''} lg:ml-[6.25rem]`}>
       {data.map(item => {
-        const { id, fields, confirmation, actions, prev, slug } = item
+        const { id, fields, confirmation, slug } = item
 
         if (pathname === slug) {
           return (
@@ -37,18 +35,9 @@ const Summary = () => {
 
                       return (
                         <div className="flex flex-col mb-[2.19rem]" key={id}>
-                          {/* TITLE !!! CREATE A COMPONENT !!! */}
-                          {title && subtitle && (
-                            <>
-                              <h1 className="text-denim text-[2rem] font-[700] leading-normal">
-                                {title}
-                              </h1>
+                          <Title title={title} subtitle={subtitle} />
 
-                              <h2 className="text-gray text-[1rem] leading-[1.5625rem] font-[400] mb-[2.19rem]">
-                                {subtitle}
-                              </h2>
-                            </>
-                          )}
+                          {/* PLAN */}
                           <div className="flex flex-col py-4 px-6 bg-very-light-gray rounded-lg">
                             {/* PLAN */}
                             <div className="flex items-center justify-between w-full">
@@ -87,7 +76,6 @@ const Summary = () => {
                         </div>
                       )
                     })}
-                    <Buttons actions={actions} submit={() => setShowConfirmation(true)} prev={prev} /> 
                   </>
                 : <Confirmation confirmation={confirmation} />
               }
@@ -101,3 +89,7 @@ const Summary = () => {
 }
 
 export default Summary
+
+Summary.propTypes = {
+  showConfirmation: PropTypes.bool
+}

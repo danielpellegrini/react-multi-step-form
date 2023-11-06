@@ -18,8 +18,7 @@ const Buttons = ({ actions, next, prev, submit, onClick }) => {
   return (
     <div className={`
       flex
-      lg:mb-4
-      w-full
+      lg:w-[28.125rem] w-full
       h-[4.5rem]
       bg-white
       lg:p-0 p-4
@@ -30,7 +29,7 @@ const Buttons = ({ actions, next, prev, submit, onClick }) => {
         let buttonClass = `
           font-[500] 
           lg:text-[1rem] text-sm
-          lg:w-[7.6875rem] w-[6.0625rem]
+          w-[6.0625rem]
           lg:h-[3rem] h-[2.5rem]
           lg:rounded-[0.5rem] rounded-[0.25rem]
           transition
@@ -41,10 +40,10 @@ const Buttons = ({ actions, next, prev, submit, onClick }) => {
             buttonClass += ' text-gray bg-none hover:text-denim transition w-auto'
             break
           case 'confirm':
-            buttonClass += ' bg-purple text-white hover:bg-light-purple transition'
+            buttonClass += ' lg:w-[7.6875rem] bg-purple text-white hover:bg-light-purple transition'
             break
           default:
-            buttonClass += ' bg-denim text-white hover:bg-light-denim transition'
+            buttonClass += ' lg:w-[7.6875rem] bg-denim text-white hover:bg-light-denim transition'
             break
         }
   
@@ -53,7 +52,8 @@ const Buttons = ({ actions, next, prev, submit, onClick }) => {
             type='button' 
             key={action.id} 
             className={buttonClass} 
-            onClick={(e) => onClick ? onClick(e) : handleNavigation(action.value)}>
+            onClick={(e) => onClick ? onClick(e) : handleNavigation(action.value)}
+          >
             {label}
           </button>
         )

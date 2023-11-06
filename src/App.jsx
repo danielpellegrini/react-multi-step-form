@@ -10,9 +10,10 @@ function App() {
         flex 
         p-[5.5625rem 15.625rem] 
         justify-center 
-        items-center 
-        font-ubuntu 
-        bg-main
+        items-center
+        font-ubuntu
+        min-h-[780px]
+        h-screen
       ">
         <Form />
       </div>
