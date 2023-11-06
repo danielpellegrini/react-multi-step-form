@@ -1,12 +1,22 @@
 import { Form } from './containers'
 
 import './App.css'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="flex w-[90rem] h-[50.625rem] p-[5.5625rem 15.625rem] justify-center items-center font-ubuntu bg-main">
-      <Form />
-    </div>
+    <BrowserRouter>
+      <div className="
+        flex 
+        p-[5.5625rem 15.625rem] 
+        justify-center 
+        items-center 
+        font-ubuntu 
+        bg-main
+      ">
+        <Form />
+      </div>
+    </BrowserRouter>
   )
 }
 

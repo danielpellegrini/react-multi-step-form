@@ -16,15 +16,43 @@ const Buttons = ({ actions, next, prev, submit, onClick }) => {
   }
 
   return (
-    <div className={`flex ${prev ? 'justify-between' : 'justify-end'} mb-4`}>
+    <div className={`
+      flex
+      lg:mb-4
+      w-full
+      h-[4.5rem]
+      bg-white
+      lg:p-0 p-4
+      ${prev ? 'justify-between' : 'justify-end'} 
+    `}>
       {actions.map((action) => {
         const { label, value } = action
+        let buttonClass = `
+          font-[500] 
+          lg:text-[1rem] text-sm
+          lg:w-[7.6875rem] w-[6.0625rem]
+          lg:h-[3rem] h-[2.5rem]
+          lg:rounded-[0.5rem] rounded-[0.25rem]
+          transition
+        `
+
+        switch (value) {
+          case 'previous':
+            buttonClass += ' text-gray bg-none hover:text-denim transition w-auto'
+            break
+          case 'confirm':
+            buttonClass += ' bg-purple text-white hover:bg-light-purple transition'
+            break
+          default:
+            buttonClass += ' bg-denim text-white hover:bg-light-denim transition'
+            break
+        }
   
         return (
           <button 
             type='button' 
             key={action.id} 
-            className={`font-[500] text-[1rem] px-[1.5rem] py-[1rem] rounded-[0.5rem] transition ${value === 'previous' ? 'text-gray bg-none hover:text-denim transition py-[0] px-[0]' : (value === 'confirm' ? 'bg-purple text-white hover:bg-light-purple transition' : 'bg-denim text-white hover:bg-light-denim transition')}`} 
+            className={buttonClass} 
             onClick={(e) => onClick ? onClick(e) : handleNavigation(action.value)}>
             {label}
           </button>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useLocation, Link } from "react-router-dom"
-import data from '../data'
-import Confirmation from './Confirmation'
-import Buttons from './Buttons'
+import data from '../../data'
+import Confirmation from '../Confirmation'
+import Buttons from '../Buttons'
 
 const Summary = () => {
   const location = useLocation()
@@ -57,7 +57,7 @@ const Summary = () => {
                                   {planValues && `${planValues.selectedPlan} (${planValues.planFrequency})`}
                                 </span>
                                 <span className="text-gray underline cursor-pointer">
-                                  <Link to="/select-plan" className="text-gray underline text-sm cursor-pointer">Change</Link>
+                                  <Link to="/select-plan" className="text-gray underline text-sm cursor-pointer hover:text-purple transition">Change</Link>
                                 </span>
                               </div>
                               <span className="text-denim text-base font-bold">{planValues && `$${planValues.price}/${planValues.planFrequency === 'monthly' ? 'mo' : 'yr'}`}</span>

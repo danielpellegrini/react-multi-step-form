@@ -1,61 +1,22 @@
-import data from '../data'
-import { useState } from 'react'
-import Buttons from './Buttons'
-import { useNavigate, useLocation } from 'react-router-dom'
+import data from '../../data'
+import {  useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-
-
-const Input = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  // Check if there are saved data in localStorage
-  const storedInputValues = JSON.parse(localStorage.getItem('inputValues')) || {}
-  // Use saved data to prepopulate form fields
-  const [inputValues, setInputValues] = useState(storedInputValues)
-
-  const navigate = useNavigate()
-
+const Input = ({handleInputChange, formSubmitted, inputValues}) => {
   const location = useLocation()
-
   const { pathname } = location
 
-  const handleInputChange = (event) => {
-    const target = event.target
-    const name = target.name
-    const value = target.value
-
-    setInputValues({
-      ...inputValues,
-      [name]: value.trim(),
-    })
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-
-    const requiredFields = data.find((item) => item.id === 1).fields.filter((field) => field.required)
-
-    const next = data.find((item) => item.id === 1).next
-
-    const isFormValid = requiredFields.every((field) => {
-      const inputValue = inputValues[field.name] || ''
-      return !field.required || (inputValue.trim().length > 0)
-    })
-
-    if (isFormValid) {
-      // Save input values in localStorage
-      localStorage.setItem('inputValues', JSON.stringify(inputValues))
-      navigate(next)
-    } else {
-      // Set formSubmitted to true to show error messages
-      setFormSubmitted(true)
-    }
-  }
+  
 
   return (
-    <div className='flex w-[28.125rem] mt-[2rem] ml-[6.25rem]'>
+    <div className='
+      flex 
+      lg:w-[28.125rem] 
+      lg:mt-[2rem] 
+      lg:ml-[6.25rem]
+    '>
       {data.map((item) => {
-        const { id, fields, actions, slug } = item
+        const { id, fields, slug } = item
 
         if (pathname === slug) {
           return (
@@ -77,7 +38,16 @@ const Input = () => {
 
                   const isInputEmpty = formSubmitted && inputValue.trim() === ''
 
-                  const inputClassName = `border-[1px] border-border-color bg-white rounded-[0.5rem] py-[0.94rem] px-[1rem] text-[1rem] font-[400] text-[#4B5563] focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent cursor-pointer ${
+                  const inputClassName = `
+                  border-[1px] border-border-color 
+                  bg-white 
+                  lg:rounded-[0.5rem] rounded-[0.25rem]
+                  lg:py-[0.94rem] lg:px-[1rem] py-[0.75rem] px-[1rem]
+                  lg:text-[1rem] text-[0.9375rem] text-[#4B5563] 
+                  font-[500] 
+                  focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent 
+                  cursor-pointer 
+                  ${
                     field.required && isInputEmpty ? 'border-red-errors' : ''
                   }`
 
@@ -85,18 +55,36 @@ const Input = () => {
                     <div className='flex flex-col' key={id}>
                       {title && subtitle && (
                         <>
-                          <h1 className='text-denim text-[2rem] font-[700] leading-normal'>
+                          <h1 className='
+                            text-denim 
+                            lg:text-[2rem] text-2xl
+                            font-[700] 
+                            leading-normal
+                          '>
                             {title}
                           </h1>
 
-                          <h2 className='text-gray text-[1rem] leading-[1.5625rem] font-[400] mb-[2.19rem]'>
+                          <h2 className='
+                          text-gray 
+                            text-[1rem]
+                            leading-[1.5625rem] 
+                            font-[400] 
+                            mb-[2.19rem]
+                          '>
                             {subtitle}
                           </h2>
                         </>
                       )}
                       {label && (
                         <div className='flex flex-col mb-[1.5rem]'>
-                          <div className='flex justify-between items-center mb-[0.5rem] text-[0.875rem] leading-normal'>
+                          <div className='
+                            flex 
+                            justify-between 
+                            items-center 
+                            mb-[0.5rem] 
+                            lg:text-[0.875rem] 
+                            leading-normal
+                          '>
                             <label>{label}</label>
 
                             {field.required && isInputEmpty && (
@@ -121,7 +109,7 @@ const Input = () => {
                   )
                 })}
               </div>
-              <Buttons actions={actions} onClick={handleSubmit} />
+              {/* <Buttons actions={actions} onClick={handleSubmit} /> */}
             </div>
           )
         }
@@ -134,5 +122,7 @@ const Input = () => {
 export default Input
 
 Input.propTypes = {
-  currentId: PropTypes.number,
+  handleInputChange: PropTypes.func,
+  formSubmitted: PropTypes.bool,
+  inputValues: PropTypes.object,
 }

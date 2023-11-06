@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import data from '../data'
-import Buttons from './Buttons'
+import data from '../../data'
+import Buttons from '../Buttons'
 
 const Addons = () => {
   const location = useLocation()

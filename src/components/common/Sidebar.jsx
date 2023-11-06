@@ -1,4 +1,4 @@
-import data from '../data' 
+import data from '../../data' 
 import PropTypes from 'prop-types'
 import { useLocation } from "react-router-dom";
 
@@ -8,17 +8,37 @@ const Sidebar = () => {
   const { pathname } = location
 
   return (
-    <div className="w-[17.125rem] height-[35.5rem] flex-shrink-0 rounded-[0.562rem] bg-sidebar-desktop py-[2.5rem] px-[2rem]">
+    <div className="
+      flex
+      lg:relative absolute top-0 left-0 w-full
+      lg:flex-col
+      lg:justify-start justify-center
+      lg:w-[17.125rem]
+      lg:h-auto h-[12rem]
+      flex-shrink-0
+      lg:rounded-[0.562rem] 
+      lg:bg-sidebar-desktop bg-sidebar-mobile bg-no-repeat bg-cover
+      lg:py-[2.5rem] py-[2rem]
+      lg:px-[2rem]
+    ">
 
     {data.map((item, index) => {
       const { id, title, subtitle, slug } = item
 
       if ( title && subtitle ) {
         return (
-          <div className='flex w-[8.4375rem] h-[2.0625rem] flex-shrink-0 mb-5' key={id}>
+          <div className='
+            flex
+            lg:flex-row flex-col
+            lg:w-[8.4375rem] 
+            lg:h-[2.0625rem] 
+            flex-shrink-0 
+            mb-5' 
+            key={id}>
             {/* INDEX */}
-            <div className={
-              `flex w-[2.0625rem] 
+            <div className={` 
+                flex
+                w-[2.0625rem]
                 h-[2.0625rem] 
                 justify-center 
                 items-center 
@@ -31,7 +51,13 @@ const Sidebar = () => {
             </div>
   
             {/* STEP */}
-            <div className='justify-center flex-col items-start gap-1'>
+            <div className='
+              lg:flex hidden
+              justify-center 
+              flex-col 
+              items-start 
+              gap-1
+            '>
               <div className='text-light-blue font-[400] mb-[0.25rem]'>
                 {title}
               </div>
