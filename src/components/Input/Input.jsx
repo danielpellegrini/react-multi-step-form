@@ -37,17 +37,24 @@ const Input = ({handleInputChange, formSubmitted, inputValues}) => {
 
                   const isInputEmpty = formSubmitted && inputValue.trim() === ''
 
+                  const isEmailValid = (email) => {
+                    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+
+                    return emailPattern.test(email)
+                  }
+
                   const inputClassName = `
                   border-[1px] border-border-color 
                   bg-white 
                   lg:rounded-[0.5rem] rounded-[0.25rem]
                   lg:py-[0.94rem] lg:px-[1rem] py-[0.75rem] px-[1rem]
                   lg:text-[1rem] text-[0.9375rem] text-[#4B5563] 
-                  font-[500] 
+                  text-denim
+                  font-medium 
                   focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent 
                   cursor-pointer 
                   ${
-                    field.required && isInputEmpty ? 'border-red-errors' : ''
+                    field.required && isInputEmpty || type === 'email' && !isEmailValid(inputValue) ? 'border-red-errors' : ''
                   }`
 
                   return (
@@ -68,11 +75,18 @@ const Input = ({handleInputChange, formSubmitted, inputValues}) => {
                             <label>{label}</label>
 
                             {field.required && isInputEmpty && (
-                              <p className='text-red-errors text-[0.875rem] font-[700]'>
+                              <p className='text-red-errors text-[0.875rem] font-bold'>
                                 This field is required
                               </p>
                             )}
+                            {type === 'email' && inputValue && !isEmailValid(inputValue) && (
+                              <p className='text-red-errors text-[0.875rem] font-bold'>
+                                Please enter a valid email address
+                              </p>
+                            )}
                           </div>
+
+                              {console.log(type)}
 
                           <input
                             type={type}

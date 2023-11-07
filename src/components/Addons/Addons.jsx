@@ -114,8 +114,8 @@ const Addons = () => {
                                 </svg>
                               </div>
                             </label>
-                            <div className="flex flex-col lg:gap-[0.44rem] gap-[0.19rem] lg:ml-6 ml-4">
-                              <span className="text-denim lg:text-base text-sm font-[500]">
+                            <div className="flex flex-col gap-[0.19rem] lg:ml-6 ml-4">
+                              <span className="text-denim lg:text-base text-sm font-medium">
                                 {title}
                               </span>
                               <span className="text-gray lg:text-sm text-xs font-normal">

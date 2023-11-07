@@ -27,7 +27,7 @@ const Buttons = ({ actions, next, prev, submit, onClick }) => {
       {actions.map((action) => {
         const { label, value } = action
         let buttonClass = `
-          font-[500] 
+          font-medium 
           lg:text-[1rem] text-sm
           w-[6.0625rem]
           lg:h-[3rem] h-[2.5rem]

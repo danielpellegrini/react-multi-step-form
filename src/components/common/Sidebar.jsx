@@ -43,7 +43,8 @@ const Sidebar = () => {
                 justify-center 
                 items-center 
                 mr-4 
-                font-semibold 
+                font-bold
+                text-sm
                 rounded-[50%] 
                 ${pathname === slug ? 'text-denim transition-all bg-sky-blue' : 'text-white border-[1px] border-white'}
               `}>
@@ -56,14 +57,13 @@ const Sidebar = () => {
               justify-center 
               flex-col 
               items-start 
-              gap-1
             '>
-              <div className='text-light-blue font-[400] mb-[0.25rem]'>
+              <div className='text-light-blue font-normal mb-[0.25rem]'>
                 {title}
               </div>
   
               {/* STEP TITLE */}
-              <div className='text-white font-[700]'>
+              <div className='text-white font-bold'>
                 {subtitle}
               </div>
             </div>

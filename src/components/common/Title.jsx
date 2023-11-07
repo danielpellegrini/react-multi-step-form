@@ -8,7 +8,7 @@ const Title = ({ title, subtitle }) => {
           <h1 className='
             text-denim 
             lg:text-[2rem] text-2xl
-            font-[700] 
+            font-bold 
             leading-normal
           '>
             {title}
@@ -18,7 +18,7 @@ const Title = ({ title, subtitle }) => {
           text-gray 
             text-[1rem]
             leading-[1.5625rem] 
-            font-[400] 
+            font-normal 
             lg:mb-[2.19rem] mb-[1.38rem]
           '>
             {subtitle}

@@ -41,7 +41,7 @@ const Summary = ({ showConfirmation }) => {
                           <div className="flex flex-col py-4 px-6 bg-very-light-gray rounded-lg">
                             {/* PLAN */}
                             <div className="flex items-center justify-between w-full">
-                              <div className="flex flex-col gap-[0.44rem]">
+                              <div className="flex flex-col">
                                 <span className="text-denim font-medium text-base capitalize">
                                   {planValues && `${planValues.selectedPlan} (${planValues.planFrequency})`}
                                 </span>
@@ -53,7 +53,7 @@ const Summary = ({ showConfirmation }) => {
                             </div>
 
                             {optionValues.length !== 0 && (
-                              <hr className="h-px bg-gray opacity-[0.2043] border-0 mt-6 mb-4" />
+                              <hr className="h-px bg-gray opacity-[0.2043] border-0 lg:my-6 my-3" />
                             )}
 
                             {/* ADD-ONS */}
@@ -70,7 +70,7 @@ const Summary = ({ showConfirmation }) => {
                           </div>
                           {/* TOTAL */}
                           <div className="flex items-center pt-[1.56rem] px-6 justify-between w-full">
-                            <span className="text-gray font-bold text-sm">{label}</span>
+                            <span className="text-gray font-normal text-sm">{label}</span>
                             <span className="text-purple text-xl font-bold">{`+$${total}/${planValues.planFrequency === 'monthly' ? 'mo' : 'yr'}`}</span>
                           </div>
                         </div>

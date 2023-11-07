@@ -125,18 +125,18 @@ const Plan = ({ plan, planValues, setPlanValues }) => {
         <div className="
           text-[1rem] 
           text-denim 
-          font-[700] 
+          font-bold 
           mb-[0.44rem]
         ">
           {label}
         </div>
 
-        <div className="text-sm font-[400] text-gray">
+        <div className="text-sm font-normal text-gray">
           {planValues.planFrequency === 'monthly' ? `$${priceMonthly}/mo` : `$${priceYearly}/yr`}
         </div>
 
         {planValues.planFrequency === 'yearly' && (
-          <span className="font-[400] text-xs text-denim mt-[0.44rem]">
+          <span className="font-normal text-xs text-denim mt-[0.44rem]">
             {discount}
           </span>
         )}
@@ -159,7 +159,7 @@ const PlanFrequencyToggle = ({ priceMonthly, priceYearly, planValues, setPlanVal
   return (
     <div className="flex items-center justify-center">
       <span
-        className={`mr-6 font-[700] text-sm ${
+        className={`mr-6 font-medium text-sm ${
           planValues.planFrequency === 'monthly' ? 'text-denim transition' : 'text-gray transition'
         }`}
       >
@@ -175,7 +175,7 @@ const PlanFrequencyToggle = ({ priceMonthly, priceYearly, planValues, setPlanVal
         <div className="w-[2.375rem] h-[1.25rem] bg-gray-200 peer-focus:outline-none rounded-full peer bg-denim peer-checked:after:translate-x-[1.10rem] after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:rounded-full after:h-3 after:w-3 after:transition-all"></div>
       </label>
       <span
-        className={`ml-6 font-[700] text-sm ${
+        className={`ml-6 font-medium text-sm ${
           planValues.planFrequency === 'yearly' ? 'text-denim transition' : 'text-gray transition'
         }`}
       >

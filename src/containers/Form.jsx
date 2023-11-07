@@ -21,7 +21,7 @@ const Form = () => {
   // Use saved data to prepopulate form fields
   const [inputValues, setInputValues] = useState(storedInputValues)
 
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false)
 
   const handleInputChange = (event) => {
     const target = event.target
@@ -34,6 +34,12 @@ const Form = () => {
     })
   }
 
+  const isEmailValid = (email) => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+
+    return emailPattern.test(email)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -41,6 +47,11 @@ const Form = () => {
 
     const isFormValid = requiredFields.every((field) => {
       const inputValue = inputValues[field.name] || ''
+
+      if (field.name === 'email') {
+        return isEmailValid(inputValue)
+      }
+
       return !field.required || (inputValue.trim().length > 0)
     })
 
