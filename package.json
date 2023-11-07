@@ -2,6 +2,8 @@
   "name": "multi-step-form",
   "private": false,
   "version": "0.0.1",
+  "homepage": "https://danielpellegrini.github.io/react-multi-step-form/",
+  "files": ["dist"],
   "type": "module",
   "scripts": {
     "dev": "vite",

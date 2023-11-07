@@ -1,11 +1,11 @@
 import { Form } from './containers'
 
 import './App.css'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="
         flex 
         p-[5.5625rem 15.625rem] 
@@ -17,7 +17,7 @@ const App = () => {
       ">
         <Form />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

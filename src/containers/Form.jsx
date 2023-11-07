@@ -66,8 +66,8 @@ const Form = () => {
   }
 
   return (
-    <div className="">
-      <div className="">
+    <div>
+      <div>
         <div className="lg:hidden absolute top-0 left-0 w-full ">
           <Sidebar />
         </div>
@@ -76,7 +76,7 @@ const Form = () => {
             <Sidebar />
           </div>
             <Routes>
-              <Route path="/" element={<Input handleInputChange={handleInputChange} formSubmitted={formSubmitted} inputValues={inputValues} />} />
+              <Route exact path="/" element={<Input handleInputChange={handleInputChange} formSubmitted={formSubmitted} inputValues={inputValues} />} />
               <Route path="/select-plan" element={<Plans />} />
               <Route path="/add-ons" element={<Addons />} />
               <Route path="/summary" element={<Summary showConfirmation={showConfirmation} />} />
