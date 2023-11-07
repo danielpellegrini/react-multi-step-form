@@ -71,7 +71,6 @@ const Plans = () => {
                   </div>
                 )
               })}
-              {/* <Buttons actions={actions} next={next} prev={prev} /> */}
             </div>
           )
         }
@@ -118,7 +117,7 @@ const Plan = ({ plan, planValues, setPlanValues }) => {
         lg:mb-[2.44rem]
         mr-[0.87rem]
       ">
-        <img src={`../src/assets/images/icon-${icon}.svg`} alt="" />
+        <img src={`./images/icon-${icon}.svg`} alt={icon} />
       </div>
       {/* RIGHT CONTAINER */}
       <div className='flex flex-col'>

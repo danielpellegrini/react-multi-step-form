@@ -1,5 +1,4 @@
 import data from '../../data' 
-import PropTypes from 'prop-types'
 import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -77,7 +76,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-
-Sidebar.propTypes = {
-  active: PropTypes.bool,
-}
