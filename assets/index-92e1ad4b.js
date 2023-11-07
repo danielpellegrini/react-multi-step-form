@@ -167,7 +167,7 @@ Error generating stack: `+i.message+`
         lg:h-[2.5rem] 
         lg:mb-[2.44rem]
         mr-[0.87rem]
-      `,children:v.jsx("img",{src:`./assets/images/icon-${l}.svg`,alt:l})}),v.jsxs("div",{className:"flex flex-col",children:[v.jsx("div",{className:`
+      `,children:v.jsx("img",{src:`./icon-${l}.svg`,alt:l})}),v.jsxs("div",{className:"flex flex-col",children:[v.jsx("div",{className:`
           text-[1rem] 
           text-denim 
           font-bold 
