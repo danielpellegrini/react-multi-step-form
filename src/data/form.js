@@ -3,7 +3,7 @@ const data = [
     "id": 1,
     "title": "STEP 1",
     "subtitle": "YOUR INFO",
-    "slug": "/your-info", 
+    "slug": "/", 
     "next": "/select-plan",
     "fields": [
       {
@@ -51,7 +51,7 @@ const data = [
     "subtitle": "SELECT PLAN",
     "next": "/add-ons",
     "slug": "/select-plan",
-    "prev": "/your-info",
+    "prev": "/",
     "fields": [
       {
         "id": 20,

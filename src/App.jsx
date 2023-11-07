@@ -3,7 +3,7 @@ import { Form } from './containers'
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="

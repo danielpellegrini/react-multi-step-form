@@ -86,8 +86,6 @@ const Input = ({handleInputChange, formSubmitted, inputValues}) => {
                             )}
                           </div>
 
-                              {console.log(type)}
-
                           <input
                             type={type}
                             placeholder={placeholder}

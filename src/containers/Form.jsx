@@ -76,7 +76,7 @@ const Form = () => {
             <Sidebar />
           </div>
             <Routes>
-              <Route path="/your-info" element={<Input handleInputChange={handleInputChange} formSubmitted={formSubmitted} inputValues={inputValues} />} />
+              <Route path="/" element={<Input handleInputChange={handleInputChange} formSubmitted={formSubmitted} inputValues={inputValues} />} />
               <Route path="/select-plan" element={<Plans />} />
               <Route path="/add-ons" element={<Addons />} />
               <Route path="/summary" element={<Summary showConfirmation={showConfirmation} />} />
