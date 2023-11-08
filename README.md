@@ -49,5 +49,5 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://danielpellegrini.dev)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Website - [Daniel Pellegrini](https://danielpellegrini.dev)
+- Frontend Mentor - [@danielpellegrini](https://www.frontendmentor.io/profile/danielpellegrini)
